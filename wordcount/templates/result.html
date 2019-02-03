@@ -1,15 +1,52 @@
-<h1>당신이 입력한 텍스트는 {{totall}}로 구성되어 있습니다.</h1>
+<html>
+    <head>
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-<a href="{%url 'home'%}">다시하기</a>
-<br>
-<h2>입력한 텍스트</h2>
-<!--입력받은 전체 텍스트-->
-{{full}}
-<h2>단어 카운드 :</h2>
-<!--단어 - 단어가 나온 횟수-->
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> 
 
-{% for word, countTotal in dictionary %}
-{{ word }} - {{ countTotal }}
-<br>
-{% endfor %}
+        <style>
+        .box{
+            text-align: center;
+            padding:20px;
+            border: dotted 1px gray;
+        }
+        .left{
+            margin-left:600px;
+            margin-left:600px;
+        }
+        </style>
+    </head>
+    <body>
+         <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{%url 'home'%}">Like lion</a>
+                </div>
+                <a href="{%url 'home'%}"><button type="button" class="btn btn-default navbar-btn">Home</button></a>
+                <a href="{%url 'about'%}"><button type="button" class="btn btn-default navbar-btn">About</button></a>
+            </div>
+        </nav>
+        <div class="box">
+        <h1>당신이 입력한 텍스트는 {{totall}}단어로 구성되어 있습니다.</h1>
+
+        <br>
+        <h2>입력한 텍스트</h2>
+         {{full}}
+        <h2>단어 카운트</h2>    
+        {% for word, countTotal in dictionary %}
+        {{ word }} - {{ countTotal }}
+        <br>
+        {% endfor %} 
+        </div>
+        <br>
+        <p><a class="btn btn-primary btn-lg left" href="{%url 'home'%}" role="button">다시하기</a></p>
+
+      
+    </body>
+</html>
+
